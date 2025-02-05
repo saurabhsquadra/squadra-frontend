@@ -1,0 +1,88 @@
+/* .scrolling-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+  
+  .scrolling-content {
+    display: inline-block;
+    animation: scroll 10s linear infinite;
+  } */
+
+  .scrolling-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%; /* Ensures container takes the full width */
+    max-width: 350px;
+  }
+  
+  .scrolling-content {
+    display: inline-flex; /* Use inline-flex to make sure it's horizontally arranged */
+    width: max-content; /* Ensure content takes only as much space as needed */
+    animation: scroll 15s linear infinite; /* Scroll animation */
+    gap: 10px;
+  }
+
+  .scrolling-content-right-to-left {
+    display: inline-flex; /* Use inline-flex to make sure it's horizontally arranged */
+    width: max-content; /* Ensure content takes only as much space as needed */
+    animation: scroll-right-to-left 15s linear infinite; /* Scroll animation */
+    gap: 10px;
+  }
+  
+  /* Scrolls content from left to right */
+  .scrolling-content-left-to-right {
+    display: inline-flex; /* Use inline-flex to make sure it's horizontally arranged */
+    width: max-content; /* Ensure content takes only as much space as needed */
+    animation: scroll-left-to-right 15s linear infinite; /* Scroll animation */
+    gap: 10px;
+  }
+  
+  .card {
+    display: inline-block;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 10px;
+    padding: 10px;
+    min-width: 100px;
+    text-align: center;
+  }
+  
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Keyframe for right to left scrolling */
+@keyframes scroll-right-to-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%); /* Move content to the left by the full width */
+  }
+}
+
+
+@keyframes scroll-left-to-right {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%); /* Move content to the right by the full width */
+  }
+}
+
+.image {
+  transition: transform 0.8s ease-out;
+  transform: scale(0.75);
+}
+
+.image.expand {
+  transform: scale(1); /* Adjust the scale as needed */
+}

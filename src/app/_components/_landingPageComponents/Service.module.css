@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+  .mobile-visible {
+    display: block !important;
+    opacity: 1 !important;
+  }
+  .group-hover\:opacity-100 {
+    opacity: 1 !important;
+  }
+}
