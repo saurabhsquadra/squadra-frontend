@@ -4,18 +4,18 @@ import Application from "@/app/models/applications";
 import { NextRequest, NextResponse } from "next/server";
 import AWS from "aws-sdk";
 import nodemailer from "nodemailer";
-import itLogo from '@/utilities/images/it-logo.svg'
+import itLogo from "@/utilities/images/it-logo.svg";
 import Job from "@/app/models/jobs";
 const s3 = new AWS.S3({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: process.env.AWS_REGION, 
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY,
+  region: process.env.REGION,
 });
 const transporter = nodemailer.createTransport({
-  service: "Gmail", 
+  service: "Gmail",
   auth: {
-    user: process.env.SMTP_USER, 
-    pass: process.env.SMTP_PASS, 
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
   },
 });
 export async function POST(req: NextRequest) {
@@ -55,21 +55,23 @@ export async function POST(req: NextRequest) {
     if (file) {
       const buffer = Buffer.from(await file.arrayBuffer());
 
-      const uploadParams:any= {
-        Bucket: process.env.AWS_BUCKET_NAME, 
-        Key: `uploads/${(body.file as File).name}`, 
+      const uploadParams: any = {
+        Bucket: process.env.BUCKET_NAME,
+        Key: `uploads/${(body.file as File).name}`,
         Body: buffer,
-        ContentType: (body.file as File).type, 
-        ACL: "public-read", 
+        ContentType: (body.file as File).type,
+        ACL: "public-read",
       };
       const uploadResult = await s3.upload(uploadParams).promise();
       applicationData.resume = uploadResult.Location;
     }
     const data = await Application.create(applicationData);
-    if(data){
+    if (data) {
       const applicantEmail = applicationData.email;
-      const HR_Email = process.env.HR_EMAIL || 'mohit@squadramedia.com' ;
-      const JobRole = await Job.findById(applicationData.jobId).select('jobTitle -_id');
+      const HR_Email = process.env.HR_EMAIL || "mohit@squadramedia.com";
+      const JobRole = await Job.findById(applicationData.jobId).select(
+        "jobTitle -_id"
+      );
       const JobTitle = JobRole?.jobTitle;
       await transporter.sendMail({
         from: process.env.SMTP_USER,
@@ -112,7 +114,7 @@ export async function POST(req: NextRequest) {
       
       <img src="${itLogo}" alt="Squadra Media Logo" style="width: 100px; margin-top: 20px;">`,
       });
-       
+
       await transporter.sendMail({
         from: process.env.SMTP_USER,
         to: HR_Email,
@@ -138,10 +140,16 @@ export async function POST(req: NextRequest) {
       <p>We have received a new application for the <strong>${JobTitle}</strong> position. Below are the details of the candidate:</p>
       
       <ul>
-        <li><strong>Name:</strong> ${applicationData.firstName} ${applicationData.lastName}</li>
+        <li><strong>Name:</strong> ${applicationData.firstName} ${
+          applicationData.lastName
+        }</li>
         <li><strong>Email:</strong> ${applicationData.email}</li>
         <li><strong>Contact Number:</strong> ${applicationData.phone}</li>
-        <li><strong>Resume/CV:</strong> ${applicationData.resume ? `<a href="${applicationData.resume}" target="_blank">View Resume</a>` : "No resume provided"}</li>
+        <li><strong>Resume/CV:</strong> ${
+          applicationData.resume
+            ? `<a href="${applicationData.resume}" target="_blank">View Resume</a>`
+            : "No resume provided"
+        }</li>
         <li><strong>Application Date:</strong> ${new Date().toLocaleDateString()}</li>
       </ul>
       
@@ -156,11 +164,10 @@ export async function POST(req: NextRequest) {
       });
     }
     return NextResponse.json({
-        success: true,
-        data,
-        message: "JOB Applied successfully.",
-      });
-    
+      success: true,
+      data,
+      message: "JOB Applied successfully.",
+    });
   } catch (error) {
     return NextResponse.json(
       { message: error instanceof Error ? error.message : "An error occurred" },
