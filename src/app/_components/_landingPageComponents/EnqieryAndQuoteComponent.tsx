@@ -5,9 +5,13 @@ import { ArrowRight, Loader2, } from "lucide-react";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import generalEnquiryIcon from '@/utilities/icons/general-enquiry.svg'
+import salesEnquiryIcon from '@/utilities/icons/sales-enquiry.svg'
+import hrEnquiryIcon from '@/utilities/icons/hr-enquiry.svg'
+import Image from "next/image";
 
 export default function ContactUsForm() {
-  const [activeTab, setActiveTab] = useState("quote");
+  const [activeTab, setActiveTab] = useState("inquiry");
  const [loading, setLoading] = useState(false);
   const {
     register,
@@ -76,6 +80,24 @@ export default function ContactUsForm() {
     setActiveTab(tab);
   };
 
+  const enquiryOptions=[
+    {
+      title:"General Enquiry",
+      phoneNumber:"+91 96068 27067",
+      icon:generalEnquiryIcon
+    },
+    {
+      title:"Sales Enquiry",
+      phoneNumber:"+91 96068 27067",
+      icon:salesEnquiryIcon
+    },
+    {
+      title:"HR Enquiry",
+      phoneNumber:"+91 96068 27067",
+      icon:hrEnquiryIcon
+    }
+  ]
+
   return (
     <div className="max-w-screen-2xl flex flex-col pt-24 lg:pt-24 md:pt-20 sm:pt-15 lg:flex-row  md:mt-0 justify-between p-10 lg:p-20 md:p-10 space-y-10 lg:space-y-0 lg:space-x-2">
       {/* Left Section */}
@@ -87,20 +109,36 @@ export default function ContactUsForm() {
           Please feel free to share your thoughts and we can discuss it over a
           cup of tea.
         </p>
+
+        <div className="flex lg:flex-col flex-row sm:gap-[35px] justify-between mt-[50px]">
+          {enquiryOptions.map((item,index)=>{
+            return(
+              <div key={index} className="flex sm:items-start items-center sm:flex-row flex-col xl:gap-6 lg:gap-[10px] md:gap-[10px] gap-[10px]">
+                <div className="xl:h-[70px] xl:w-[70px] lg:h-[55px] lg:w-[55px] md:h-[55px] md:w-[55px] sm:h-[55px] sm:w-[55px] w-[25px] h-[25px]">
+                  <Image src={item.icon} alt="icon" className="w-full h-full" />
+                </div>
+                <div className="flex flex-col xl:gap-[10px] sm:gap-[9px] gap-[4px]">
+                  <p className="font-semibold sm:text-[18px] sm:leading-[26px] text-[10px] leading-[12.1px] text-[#111928]">{item.title}</p>
+                  <p className="font-normal sm:text-[16px] sm:leading-[24px] text-[10px] leading-[12.1px] text-[#637381]">{item.phoneNumber}</p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
 
       {/* Right Section */}
       <div className="w-full lg:w-1/2">
         <div className="mb-10">
           <div className="flex space-x-8">
-            <button
-              className={`py-2 text-lg border-b-2 ${
+            {/* <button
+              className={`py-2 text-lg border-b-2 hidden ${
                 activeTab === "quote" ? "border-b-yellow-500" : "border-b-transparent"
               }`}
               onClick={() => handleTabClick("quote")}
             >
               Get a Quote
-            </button>
+            </button> */}
             <button
               className={`py-2 text-lg border-b-2 ${
                 activeTab === "inquiry" ? "border-b-yellow-500" : "border-b-transparent"

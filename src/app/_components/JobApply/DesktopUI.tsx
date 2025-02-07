@@ -116,7 +116,7 @@ function DesktopUi({jobId}: {jobId: string | string[]}) {
     return (
         <div className='flex flex-col mt-[80px]'>
             <div className='hidden sm:inline'>
-                <div className='pt-[45px] pb-[44px] lg:px-[124px] md:px-[60px] sm:px-[20px] px-[20px] bg-[#FAFAFA] flex items-center gap-3 hidden md:flex '>
+                <div className='pt-[45px] pb-[44px] lg:px-[124px] md:px-[60px] sm:px-[20px] px-[20px] bg-[#FAFAFA] flex items-center gap-3 hidden sm:flex '>
                     <p onClick={() => { router.push('/') }} className='font-medium lg:text-[16px] lg:leading-6 md:text-[16px] md:leading-6 sm:text-md text-md sm:leading-6 text-[#888888] cursor-pointer'>{detailsLoading ?  <Skeleton className="lg:w-[150px] md:w-[100px] h-[20px] rounded-lg" /> : "Home"}</p>
                     <Image src={applyIcon} alt='apply' width={18} height={18} />
                     <p onClick={() => { router.push('/careers?openings=true') }} className='font-medium lg:text-[16px] lg:leading-6 md:text-[16px] md:leading-6 sm:text-md text-md sm:leading-6 text-[#888888] cursor-pointer'>{detailsLoading ?  <Skeleton className="lg:w-[150px] md:w-[100px] h-[20px] rounded-lg" /> : "Careers"}</p>

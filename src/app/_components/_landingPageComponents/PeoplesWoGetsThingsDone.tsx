@@ -28,29 +28,29 @@ function PeoplesWoGetsThingsDone() {
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 xl:px-8 py-0">
         <div className="flex items-center sm:gap-7 gap-4 xl:flex-row lg:flex-col md:flex-col sm:flex-col flex-col">
-          <div className="xl:w-[452px] xl:h-[518px] lg:w-[714px] lg:h-[818px] md:w-[714px] md:h-[818px] sm:w-[335px] sm:h-[383.92px] w-[335px] h-[383.92px]">
+          <div className="xl:w-[452px] xl:h-[518px] lg:w-[714px] lg:h-[818px] md:w-[714px] md:h-[818px] sm:w-[714px] sm:h-[818px] w-[335px] h-[383.92px]">
             <Carousel />
           </div>
 
-          <div className="xl:w-fit lg:w-[714px] md:w-[714px] sm:w-[335px] w-[335px] flex flex-col gap-6">
+          <div className="xl:w-fit lg:w-[714px] md:w-[714px] sm:w-[714px] w-[335px] flex flex-col gap-6">
             <div className="w-full xl:h-[363px] lg:h-[363px] md:h-[363px] rounded-[24px]">
               <Image priority
                 objectFit="cover" unoptimized blurDataURL="data:image/webp;base64,UklGRjIAAABXRUJQVlA4WAoAAAAQAAAABwAIAQUxQSAwAWAAQUAA0JaQAA3AA/v+/gAA=" quality={100} src={"https://squadra-media.s3.ap-south-1.amazonaws.com/DSC_3720+2+(1).webp"} width={711} height={363} alt="team image" className="w-full h-[363px] aspect-square rounded-[24px] object-cover" />
             </div>
-            <div className="flex items-center justify-center xl:gap-6 lg:gap-6 md:gap-6 sm:gap-3 gap-3 xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col">
-              <div className="flex items-center justify-center xl:gap-6  lg:gap-6 md:gap-6 sm:gap-3 gap-3">
-                <div className="xl:w-[221px] xl:h-[130px] lg:w-[221px] lg:h-[130px] md:w-[221px] md:h-[130px] sm:w-[162px] sm:h-[64px] w-[162px] h-[64px] flex flex-col justify-center items-center xl:rounded-[24px] lg:rounded-[24px] md:rounded-[24px] sm:rounded-[11px] rounded-[11px] border border-[#E7E7E7] bg-[#F8F8F8] xl:p-6 lg:p-6 md:p-6 sm:p-[11.26px] p-[11.26px]">
-                  <p ref={ref} className="font-medium xl:text-[52px] xl:leading-[62.05px] lg:text-[52px] lg:leading-[62.05px] md:text-[52px] md:leading-[62.05px] sm:text-[24px] sm:leading-[28.64px] text-[24px] leading-[28.64px] text-[#FBAE17]">{inView ? <CountUp end={4} duration={3} /> : 4}+</p>
-                  <p className="font-normal xl:text-[18px] xl:leading-[32px] lg:text-[18px] lg:leading-[32px] md:text-[18px] md:leading-[32px] sm:text-[13px] sm:leading-[15px] text-[13px] leading-[15px] text-[#6D6D6D]">Years of Experience</p>
+            <div className="flex items-center justify-center xl:gap-6 lg:gap-6 md:gap-6 sm:gap-6 gap-3 xl:flex-row lg:flex-row md:flex-row sm:flex-row flex-col">
+              <div className="flex items-center justify-center xl:gap-6  lg:gap-6 md:gap-6 sm:gap-6 gap-3">
+                <div className="xl:w-[221px] xl:h-[130px] lg:w-[221px] lg:h-[130px] md:w-[221px] md:h-[130px] sm:w-[221px] sm:h-[130px] w-[162px] h-[64px] flex flex-col justify-center items-center xl:rounded-[24px] lg:rounded-[24px] md:rounded-[24px] sm:rounded-[24px] rounded-[11px] border border-[#E7E7E7] bg-[#F8F8F8] xl:p-6 lg:p-6 md:p-6 sm:p-6 p-[11.26px]">
+                  <p ref={ref} className="font-medium xl:text-[52px] xl:leading-[62.05px] lg:text-[52px] lg:leading-[62.05px] md:text-[52px] md:leading-[62.05px] sm:text-[52px] sm:leading-[62.05px] text-[24px] leading-[28.64px] text-[#FBAE17]">{inView ? <CountUp end={4} duration={3} /> : 4}+</p>
+                  <p className="font-normal xl:text-[18px] xl:leading-[32px] lg:text-[18px] lg:leading-[32px] md:text-[18px] md:leading-[32px] sm:text-[18px] sm:leading-[32px] text-[13px] leading-[15px] text-[#6D6D6D]">Years of Experience</p>
                 </div>
-                <div className="xl:w-[221px] xl:h-[130px] lg:w-[221px] lg:h-[130px] md:w-[221px] md:h-[130px] sm:w-[162px] sm:h-[64px] w-[162px] h-[64px] flex flex-col justify-center items-center xl:rounded-[24px] lg:rounded-[24px] md:rounded-[24px] sm:rounded-[11px] rounded-[11px] border border-[#E7E7E7] bg-[#F8F8F8] xl:p-6 lg:p-6 md:p-6 sm:p-[11.26px] p-[11.26px]">
-                  <p ref={ref} className="font-medium xl:text-[52px] xl:leading-[62.05px] lg:text-[52px] lg:leading-[62.05px] md:text-[52px] md:leading-[62.05px] sm:text-[24px] sm:leading-[28.64px] text-[24px] leading-[28.64px] text-[#FBAE17]">{inView ? <CountUp end={150} duration={3} /> : 150}+</p>
-                  <p className="font-normal xl:text-[18px] xl:leading-[32px] lg:text-[18px] lg:leading-[32px] md:text-[18px] md:leading-[32px] sm:text-[13px] sm:leading-[15px] text-[13px] leading-[15px] text-[#6D6D6D]">Campaigns</p>
+                <div className="xl:w-[221px] xl:h-[130px] lg:w-[221px] lg:h-[130px] md:w-[221px] md:h-[130px] sm:w-[221px] sm:h-[130px] w-[162px] h-[64px] flex flex-col justify-center items-center xl:rounded-[24px] lg:rounded-[24px] md:rounded-[24px] sm:rounded-[24px] rounded-[11px] border border-[#E7E7E7] bg-[#F8F8F8] xl:p-6 lg:p-6 md:p-6 sm:p-6 p-[11.26px]">
+                  <p ref={ref} className="font-medium xl:text-[52px] xl:leading-[62.05px] lg:text-[52px] lg:leading-[62.05px] md:text-[52px] md:leading-[62.05px] sm:text-[52px] sm:leading-[62.05px] text-[24px] leading-[28.64px] text-[#FBAE17]">{inView ? <CountUp end={150} duration={3} /> : 150}+</p>
+                  <p className="font-normal xl:text-[18px] xl:leading-[32px] lg:text-[18px] lg:leading-[32px] md:text-[18px] md:leading-[32px] sm:text-[18px] sm:leading-[32px] text-[13px] leading-[15px] text-[#6D6D6D]">Campaigns</p>
                 </div>
               </div>
-              <div className="xl:w-[221px] xl:h-[130px] lg:w-[221px] lg:h-[130px] md:w-[221px] md:h-[130px] sm:w-[162px] sm:h-[64px] w-[162px] h-[64px] flex flex-col justify-center items-center xl:rounded-[24px] lg:rounded-[24px] md:rounded-[24px] sm:rounded-[11px] rounded-[11px] border border-[#E7E7E7] bg-[#F8F8F8] xl:p-6 lg:p-6 md:p-6 sm:p-[11.26px] p-[11.26px]">
-                  <p ref={ref} className="font-medium xl:text-[52px] xl:leading-[62.05px] lg:text-[52px] lg:leading-[62.05px] md:text-[52px] md:leading-[62.05px] sm:text-[24px] sm:leading-[28.64px] text-[24px] leading-[28.64px] text-[#FBAE17]">{inView ? <CountUp end={100} duration={3} /> : 100}+</p>
-                  <p className="font-normal xl:text-[18px] xl:leading-[32px] lg:text-[18px] lg:leading-[32px] md:text-[18px] md:leading-[32px] sm:text-[13px] sm:leading-[15px] text-[13px] leading-[15px] text-[#6D6D6D]">Experts</p>
+              <div className="xl:w-[221px] xl:h-[130px] lg:w-[221px] lg:h-[130px] md:w-[221px] md:h-[130px] sm:w-[221px] sm:h-[130px] w-full h-[64px] flex flex-col justify-center items-center xl:rounded-[24px] lg:rounded-[24px] md:rounded-[24px] sm:rounded-[24px] rounded-[11px] border border-[#E7E7E7] bg-[#F8F8F8] xl:p-6 lg:p-6 md:p-6 sm:p-6 p-[11.26px]">
+                  <p ref={ref} className="font-medium xl:text-[52px] xl:leading-[62.05px] lg:text-[52px] lg:leading-[62.05px] md:text-[52px] md:leading-[62.05px] sm:text-[52px] sm:leading-[62.05px] text-[24px] leading-[28.64px] text-[#FBAE17]">{inView ? <CountUp end={100} duration={3} /> : 100}+</p>
+                  <p className="font-normal xl:text-[18px] xl:leading-[32px] lg:text-[18px] lg:leading-[32px] md:text-[18px] md:leading-[32px] sm:text-[18px] sm:leading-[32px] text-[13px] leading-[15px] text-[#6D6D6D]">Experts</p>
                 </div>
             </div>
           </div>

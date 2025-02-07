@@ -63,7 +63,7 @@ function DesktopUi({ sections,jobDetails,loading }: JobListingProps) {
 
     return (
         <div className='my-[80px]'>
-            <div className='pt-[45px] pb-[44px] lg:px-[124px] md:px-[60px] sm:px-[20px] px-[20px] flex items-center lg:gap-3 md:gap-3 sm:gap-2 gap-2 hidden md:flex'>
+            <div className='pt-[45px] pb-[44px] lg:px-[124px] md:px-[60px] sm:px-[20px] px-[20px] flex items-center lg:gap-3 md:gap-3 sm:gap-2 gap-2 hidden sm:flex'>
                 <p onClick={() => { router.push('/') }} className='font-medium lg:text-[16px] lg:leading-6 md:text-[16px] md:leading-6 sm:text-md text-md sm:leading-6 text-[#888888] cursor-pointer'>{loading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[50px] w-[50px] h-[20px] rounded-lg" /> : "Home"}</p>
                 <Image src={applyIcon} alt='apply' width={18} height={18} />
                 <p onClick={() => { router.push('/careers?openings=true') }} className='font-medium lg:text-[16px] lg:leading-6 md:text-[16px] md:leading-6 sm:text-md text-md sm:leading-6 text-[#888888] cursor-pointer'>{loading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[50px] w-[50px] h-[20px] rounded-lg" /> : "Careers"}</p>
@@ -126,7 +126,7 @@ function DesktopUi({ sections,jobDetails,loading }: JobListingProps) {
                 </div>
             </div>
 
-            <div className='px-[20px] w-full mt-[48px] block md:hidden'>
+            <div className='px-[20px] w-full mt-[48px] block sm:hidden'>
             <div onClick={() => { router.push(`/job-apply/${jobDetails?._id}`) }} className='flex items-center justify-center w-full h-[44px] rounded-[4px] px-[24px] bg-[#06135B] font-medium text-[16px] leading-[19.09px] text-[#FFFFFF] cursor-pointer'>Apply for this job</div>
             </div>
         </div>

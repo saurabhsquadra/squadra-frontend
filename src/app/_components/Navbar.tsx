@@ -6,20 +6,26 @@ import logo from "../../utilities/icons/Logo-1.svg";
 import callIcon from "../../utilities/icons/Call.svg";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
-import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight, ArrowRight } from "lucide-react";
 import { ContactPopover } from "./_contactUsComponents/ContactPopover";
-import itLogo from '@/utilities/images/it-logo.svg'
-import itLogocolor from '@/utilities/images/itLogoColoured.svg'
+import itLogo from "@/utilities/images/it-logo.svg";
+import itLogocolor from "@/utilities/images/itLogoColoured.svg";
 import TextSlideUp from "./SlideAnimate";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isServicesHovered, setIsServicesHovered] = useState(false);
   const pathname = usePathname();
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
-    if (pathname.includes("/contact-us")|| pathname.includes('/privacy-policy')) return;
+    if (
+      pathname.includes("/contact-us") ||
+      pathname.includes("/privacy-policy") ||
+      pathname.includes("/branding-and-creative") ||
+      pathname.includes("/visual-impact")
+    )
+      return;
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsScrolled(true);
@@ -52,6 +58,7 @@ const Navbar = () => {
   const services = [
     {
       title: "Technology & Development",
+      link: "/it-services",
       items: [
         // "Web & Mobile App Development",
         // "E-commerce Solutions",
@@ -63,6 +70,7 @@ const Navbar = () => {
     },
     {
       title: "Branding & Creative",
+      link: "/branding-and-creative",
       items: [
         // "Brand Strategy & Consulting",
         // "Logo Design & Brand Identity",
@@ -74,6 +82,7 @@ const Navbar = () => {
     },
     {
       title: "Digital Marketing & PR",
+      link: "/digital-marketing-and-pr",
       items: [
         // "Social Media Management",
         // "SEO & SEM",
@@ -86,6 +95,7 @@ const Navbar = () => {
     },
     {
       title: "Visual Impact",
+      link: "/visual-impact",
       items: [
         // "Commercial Photography",
         // "Corporate Films",
@@ -94,48 +104,65 @@ const Navbar = () => {
         // "Cinematic Visuals",
       ],
     },
-
   ];
 
   const toggleServices = () => setIsServicesOpen(!isServicesOpen);
   const toggleSubmenu = (index: number) =>
     setActiveService(activeService === index ? null : index);
 
-
   return (
     <>
       <nav
-        className={`fixed z-50 w-full p-2 lg:px-32 transition-all duration-300 ${pathname.includes("/contact-us") || pathname.includes("/openings")
-          || pathname.includes("/direct-apply") || pathname.includes("/job-details") || pathname.includes("/job-apply") || pathname.includes('/privacy-policy')
-
-          ? "bg-white shadow-md text-black"
-          : isScrolled
-            ? "bg-white text-black"
-            : "bg-transparent text-white"
+        className={`fixed z-50 w-full p-2 lg:px-32 transition-all duration-300 ${pathname.includes("/contact-us") ||
+          pathname.includes("/our-services") ||
+            pathname.includes("/branding-and-creative") ||
+            pathname.includes("/openings") ||
+            pathname.includes("/direct-apply") ||
+            pathname.includes("/job-details") ||
+            pathname.includes("/job-apply") ||
+            pathname.includes("/privacy-policy") ||
+            pathname.includes("/visual-impact")
+            ? "bg-white shadow-md text-black"
+            : isScrolled
+              ? "bg-white text-black"
+              : "bg-transparent text-white"
           }`}
       >
         <div className="max-w-screen-2xl mx-auto flex justify-between items-center">
-          {!pathname.includes("/it-services") && <Link href={"/"}>
-
-            <div className="w-[260px] flex items-center">
-
-
-              <Image
-                src={pathname.includes("/contact-us") || pathname.includes("/openings")
-                  || pathname.includes("/direct-apply") || pathname.includes("/job-details") || pathname.includes("/job-apply") || pathname.includes('/privacy-policy') ? itLogocolor : isScrolled ? itLogocolor : itLogo}
-                alt="Logo"
-                width={120}
-                height={40}
-                layout="intrinsic"
-              />
-              <TextSlideUp isScroll={isScrolled} isSidebarOpen={isSidebarOpen} />
-            </div>
-          </Link>}
+          {!pathname.includes("/it-services") && (
+            <Link href={"/"}>
+              <div className="w-[260px] flex items-center">
+                <Image
+                  src={
+                    pathname.includes("/contact-us") ||
+                    pathname.includes("/our-services") ||
+                      pathname.includes("/branding-and-creative") ||
+                      pathname.includes("/openings") ||
+                      pathname.includes("/direct-apply") ||
+                      pathname.includes("/job-details") ||
+                      pathname.includes("/job-apply") ||
+                      pathname.includes("/privacy-policy") ||
+                      pathname.includes("/visual-impact")
+                      ? itLogocolor
+                      : isScrolled
+                        ? itLogocolor
+                        : itLogo
+                  }
+                  alt="Logo"
+                  width={120}
+                  height={40}
+                  layout="intrinsic"
+                />
+                <TextSlideUp
+                  isScroll={isScrolled}
+                  isSidebarOpen={isSidebarOpen}
+                />
+              </div>
+            </Link>
+          )}
           <div className=" flex items-center justify-center">
-
-
-            {
-              pathname.includes("/it-services") && <Link href={"/"}>
+            {pathname.includes("/it-services") && (
+              <Link href={"/"}>
                 <Image
                   src={isScrolled ? itLogocolor : itLogo}
                   alt="Logo"
@@ -144,133 +171,193 @@ const Navbar = () => {
                   layout="intrinsic"
                 />
               </Link>
-            }
+            )}
           </div>
 
-
-          {!pathname.includes("/it-services") && <ul className="lg:flex hidden font-[500] space-x-8">
-            <Link
-              className={`cursor-pointer py-5 ${pathname.includes("/about-us") ? `text-[${primaryColor}]` : "hover:text-[#FBAE17]"
-                }`}
-              href={"/about-us"}
-            >
-              About Us
-            </Link>
-
-            <li
-              className="relative py-5 hover:text-[#FBAE17] cursor-pointer"
-              onClick={() => { setIsServicesHovered(!isServicesHovered); setIsScrolled(!isScrolled) }}
-              onMouseEnter={() => { setIsServicesHovered(true); setIsScrolled(true) }}
-              onMouseLeave={() => { setIsServicesHovered(false); setIsScrolled(false) }}
-            >
-            
-              Services
-
-              {/* Services Mega Menu */}
-              <div
-                className={`absolute top-[4.5rem] ${isServicesHovered ? 'opacity-100 visible' : 'opacity-0 invisible'
-                  } transition-all w-screen duration-300 lg:translate-x-[-48%] xl:translate-x-[-52%]  bg-white text-black shadow-xl`}
-
-
-
+          {!pathname.includes("/it-services") && (
+            <ul className="lg:flex hidden font-[500] space-x-8">
+              <Link
+                className={`cursor-pointer py-5 ${pathname.includes("/about-us")
+                    ? `text-[${primaryColor}]`
+                    : "hover:text-[#FBAE17]"
+                  }`}
+                href={"/about-us"}
               >
-                <div className="p-8 flex flex-col">
-                  <div className="flex justify-center mb-4">
-                    {/* Left Column - Heading */}
-                    <div className="w-[20%] pr-0">
-                      <h2 className="text-3xl lg:text-4xl font-light leading-tight">
-                        Developing<br />
-                        Robust<br />
-                        Skills to<br />
-                        Strengthen<br />
-                        Your<br />
-                        <span className="text-[#FBAE17]">Brand&apos;s</span><br />
-                        Impact.
-                      </h2>
+                About Us
+              </Link>
+
+              <li
+                className="relative py-5 hover:text-[#FBAE17] cursor-pointer"
+                onClick={() => {
+                  setIsServicesHovered(!isServicesHovered);
+                  setIsScrolled(!isScrolled);
+                }}
+                onMouseEnter={() => {
+                  setIsServicesHovered(true);
+                  setIsScrolled(true);
+                }}
+                onMouseLeave={() => {
+                  setIsServicesHovered(false);
+                  setIsScrolled(false);
+                }}
+              >
+                Services
+                {/* Services Mega Menu */}
+                <div
+                  className={`absolute top-[4.5rem] ${isServicesHovered
+                      ? "opacity-100 visible"
+                      : "opacity-0 invisible"
+                    } transition-all w-screen duration-300 lg:translate-x-[-48%] xl:translate-x-[-52%]  bg-white text-black shadow-xl`}
+                >
+                  <div className="p-8 flex flex-col">
+                    <div className="flex justify-center mb-4">
+                      {/* Left Column - Heading */}
+                      <div className="w-[20%] pr-0">
+                        <h2 className="text-3xl lg:text-4xl font-light leading-tight">
+                          Developing
+                          <br />
+                          Robust
+                          <br />
+                          Skills to
+                          <br />
+                          Strengthen
+                          <br />
+                          Your
+                          <br />
+                          <span className="text-[#FBAE17]">Brand&apos;s</span>
+                          <br />
+                          Impact.
+                        </h2>
+
+                        <Link href='/our-services' className="py-4 text-sm flex gap-2 hover:gap-4 transition-all">Go to overview <ArrowRight/></Link>
+                      </div>
+
+                      {/* Right Columns - Services */}
+                      <div className="w-2/3 grid grid-cols-4 gap-8">
+                        {/* IT and services */}
+                        <div className="">
+                          <h3 className="font-bold mb-4">
+                            <Link
+                              onClick={() =>
+                                setTimeout(() => {
+                                  setIsServicesHovered(false);
+                                  setIsScrolled(false);
+                                }, 500)
+                              }
+                              href="/it-services"
+                              className=" cursor-pointer"
+                            >
+                              Technology & Development
+                            </Link>
+                          </h3>
+                          <ul className="space-y-2 text-sm text-gray-600">
+                            <li>Web & Mobile App Development</li>
+                            <li>E-commerce Solutions</li>
+                            <li>AI & Machine Learning</li>
+                            <li>Cloud Solutions</li>
+                            <li>DevOps & Cybersecurity</li>
+                            <li>Quality Assurance & Testing</li>
+                          </ul>
+                        </div>
+
+                        {/* Branding & Creative */}
+                        <div>
+                          <h3 className="font-bold mb-4">
+                            <Link
+                              onClick={() =>
+                                setTimeout(() => {
+                                  setIsServicesHovered(false);
+                                  setIsScrolled(false);
+                                }, 500)
+                              }
+                              href="/branding-and-creative"
+                              className=" cursor-pointer"
+                            >
+                              Branding & Creative
+                            </Link>
+                          </h3>
+                          <ul className="space-y-2 text-sm text-gray-600">
+                            <li>Brand Strategy & Consulting</li>
+                            <li>Logo Design & Brand Identity</li>
+                            <li>Graphic Design</li>
+                            <li>2D/3D Visualisation</li>
+                            <li>Brand Collateral</li>
+                            <li>Industrial Product Design</li>
+                          </ul>
+                        </div>
+
+                        {/* Digital Marketing & PR */}
+                        <div>
+                          <h3 className="font-bold mb-4">
+                            <Link
+                              onClick={() =>
+                                setTimeout(() => {
+                                  setIsServicesHovered(false);
+                                  setIsScrolled(false);
+                                }, 500)
+                              }
+                              href="/digital-marketing-and-pr"
+                              className=" cursor-pointer"
+                            >
+                              Digital Marketing & PR
+                            </Link>
+                          </h3>
+
+                          <ul className="space-y-2 text-sm text-gray-600">
+                            <li>Social Media Management</li>
+                            <li>SEO & SEM</li>
+                            <li>Performance Marketing</li>
+                            <li>Content Marketing</li>
+                            <li>Public Relations (PR)</li>
+                            <li>Marketing Automation</li>
+                            <li>Data & Analytics</li>
+                          </ul>
+                        </div>
+
+                        {/* Visual Impact */}
+                        <div>
+                          <h3 className="font-semibold mb-4">
+                            <Link
+                              onClick={() =>
+                                setTimeout(() => {
+                                  setIsServicesHovered(false);
+                                  setIsScrolled(false);
+                                }, 500)
+                              }
+                              href="/visual-impact"
+                              className=" cursor-pointer"
+                            >Visual Impact</Link>
+                          </h3>
+                          <ul className="space-y-2 text-sm text-gray-600">
+                            <li>Commercial Photography</li>
+                            <li>Corporate Films</li>
+                            <li>Promotional Videos</li>
+                            <li>Course Management System</li>
+                            <li>Event & Product Photography</li>
+                            <li>Cinematic Visuals</li>
+                          </ul>
+                        </div>
+
+                        {/* Animation & E-learning */}
+                        <div>
+                          <h3 className="font-semibold mb-4">
+                            Animation & E-learning
+                          </h3>
+                          <ul className="space-y-2 text-sm text-gray-600">
+                            <li>2D/3D Animation</li>
+                            <li>Explainer Videos</li>
+                            <li>E-learning Modules</li>
+                            <li>Motion Graphics</li>
+                            <li>Interactive Learning Solutions</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
 
-                    {/* Right Columns - Services */}
-                    <div className="w-2/3 grid grid-cols-4 gap-8">
-                      {/* IT and services */}
-                      <div className="">
-                        <h3 className="font-bold mb-4">
-                          <Link onClick={() =>
-                            setTimeout(() => {
-                              setIsServicesHovered(false);
-                              setIsScrolled(false);
-                            }, 500)
-                          } href="/it-services" className=" cursor-pointer">Technology & Development</Link>
-                        </h3>
-                        <ul className="space-y-2 text-sm text-gray-600">
-                          <li>Web & Mobile App Development</li>
-                          <li>E-commerce Solutions</li>
-                          <li>AI & Machine Learning</li>
-                          <li>Cloud Solutions</li>
-                          <li>DevOps & Cybersecurity</li>
-                          <li>Quality Assurance & Testing</li>
-                        </ul>
-                      </div>
+                    {/* Technology & Development Section */}
 
-                      {/* Branding & Creative */}
-                      <div>
-                        <h3 className="font-semibold mb-4">Branding & Creative</h3>
-                        <ul className="space-y-2 text-sm text-gray-600">
-                          <li>Brand Strategy & Consulting</li>
-                          <li>Logo Design & Brand Identity</li>
-                          <li>Graphic Design</li>
-                          <li>2D/3D Visualisation</li>
-                          <li>Brand Collateral</li>
-                          <li>Industrial Product Design</li>
-                        </ul>
-                      </div>
-
-                      {/* Digital Marketing & PR */}
-                      <div>
-                        <h3 className="font-semibold mb-4">Digital Marketing & PR</h3>
-                        <ul className="space-y-2 text-sm text-gray-600">
-                          <li>Social Media Management</li>
-                          <li>SEO & SEM</li>
-                          <li>Performance Marketing</li>
-                          <li>Content Marketing</li>
-                          <li>Public Relations (PR)</li>
-                          <li>Marketing Automation</li>
-                          <li>Data & Analytics</li>
-                        </ul>
-                      </div>
-
-                      {/* Visual Impact */}
-                      <div>
-                        <h3 className="font-semibold mb-4">Visual Impact</h3>
-                        <ul className="space-y-2 text-sm text-gray-600">
-                          <li>Commercial Photography</li>
-                          <li>Corporate Films</li>
-                          <li>Promotional Videos</li>
-                          <li>Course Management System</li>
-                          <li>Event & Product Photography</li>
-                          <li>Cinematic Visuals</li>
-                        </ul>
-                      </div>
-
-                      {/* Animation & E-learning */}
-                      <div>
-                        <h3 className="font-semibold mb-4">Animation & E-learning</h3>
-                        <ul className="space-y-2 text-sm text-gray-600">
-                          <li>2D/3D Animation</li>
-                          <li>Explainer Videos</li>
-                          <li>E-learning Modules</li>
-                          <li>Motion Graphics</li>
-                          <li>Interactive Learning Solutions</li>
-                        </ul>
-                      </div>
-
-                    </div>
-                  </div>
-
-                  {/* Technology & Development Section */}
-
-
-                  {/* Go to overview link */}
-                  {/* <div className="text-start">
+                    {/* Go to overview link */}
+                    {/* <div className="text-start">
                     <Link 
                       href="#" 
                       className="inline-flex items-center text-gray-900 hover:underline"
@@ -278,38 +365,45 @@ const Navbar = () => {
                       Go to overview <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </div> */}
+                  </div>
                 </div>
-              </div>
-            </li>
-            <Link
-              className={`cursor-pointer py-5 ${pathname.includes("/careers") ? `text-[${primaryColor}]` : "hover:text-[#FBAE17]"
-                }`}
-              href={"/careers"}
-            >
-              Careers
-            </Link>
-          </ul>}
-
-
+              </li>
+              <Link
+                className={`cursor-pointer py-5 ${pathname.includes("/careers")
+                    ? `text-[${primaryColor}]`
+                    : "hover:text-[#FBAE17]"
+                  }`}
+                href={"/careers"}
+              >
+                Careers
+              </Link>
+            </ul>
+          )}
 
           <ul className="flex font-[500] space-x-8 md:space-x-8">
             {true && <ContactPopover isScrolled={isScrolled} />}
-            {true ? <li
-              className={`hidden md:block cursor-pointer py-[7px] px-[12px] rounded-[4px] bg-[#06135B] ${pathname.includes("/contact-us") || pathname.includes("/openings")
-                || pathname.includes("/direct-apply") || pathname.includes("/job-details") || pathname.includes("/job-apply") || pathname.includes('/privacy-policy')
-                ? `text-white`
-                : isScrolled
-                  ? "text-white"
-                  : ""
-                }`}
-
-              onClick={() => handleNavigation("/contact-us")}
-            >
-              Contact Us
-            </li> :
-              null}
+            {true ? (
+              <li
+                className={`hidden lg:block cursor-pointer py-[7px] px-[12px] rounded-[4px] bg-[#06135B] ${pathname.includes("/contact-us") ||
+                  pathname.includes("/our-services") ||
+                    pathname.includes("/branding-and-creative") ||
+                    pathname.includes("/openings") ||
+                    pathname.includes("/direct-apply") ||
+                    pathname.includes("/job-details") ||
+                    pathname.includes("/job-apply") ||
+                    pathname.includes("/privacy-policy") ||
+                    pathname.includes("/visual-impact")
+                    ? `text-white`
+                    : isScrolled
+                      ? "text-white"
+                      : ""
+                  }`}
+                onClick={() => handleNavigation("/contact-us")}
+              >
+                Contact Us
+              </li>
+            ) : null}
             {/* {!pathname.includes("/it-services") && <ContactPopover isScrolled={isScrolled}/>} */}
-
 
             {/* <li>
               <Link href='/contact-us'>
@@ -340,15 +434,20 @@ const Navbar = () => {
       >
         <div className="relative h-full flex flex-col">
           <div className="p-6">
-            {pathname.includes("/it-services") ? <Image
-              src={itLogocolor}
-              alt="Logo"
-              width={120}
-              height={40}
-              layout="intrinsic"
-            /> :
+            {pathname.includes("/it-services") ? (
+              <Image
+                src={itLogocolor}
+                alt="Logo"
+                width={120}
+                height={40}
+                layout="intrinsic"
+              />
+            ) : (
               <div>
-                <TextSlideUp isScroll={isScrolled} isSidebarOpen={isSidebarOpen} />
+                <TextSlideUp
+                  isScroll={isScrolled}
+                  isSidebarOpen={isSidebarOpen}
+                />
 
                 <Image
                   src={logo}
@@ -358,7 +457,7 @@ const Navbar = () => {
                   layout="intrinsic"
                 />
               </div>
-            }
+            )}
           </div>
           <button
             className="absolute top-4 right-4 p-2"
@@ -374,8 +473,8 @@ const Navbar = () => {
                 <Link
                   href="/about-us"
                   className={`block py-4 text-base ${pathname.includes("/about-us")
-                    ? `text-[${primaryColor}]`
-                    : "text-black"
+                      ? `text-[${primaryColor}]`
+                      : "text-black"
                     } border-b border-gray-200`}
                   onClick={toggleSidebar}
                 >
@@ -386,8 +485,8 @@ const Navbar = () => {
                 <Link
                   href="/careers"
                   className={`block py-4 text-base ${pathname.includes("/careers")
-                    ? `text-[${primaryColor}]`
-                    : "text-black"
+                      ? `text-[${primaryColor}]`
+                      : "text-black"
                     } border-b border-gray-200`}
                   onClick={toggleSidebar}
                 >
@@ -409,8 +508,8 @@ const Navbar = () => {
                 </div>
                 <div
                   className={`transition-transform duration-500 ${isServicesOpen
-                    ? "max-h-[1000px] opacity-100 scale-100"
-                    : "max-h-0 opacity-0 scale-95"
+                      ? "max-h-[1000px] opacity-100 scale-100"
+                      : "max-h-0 opacity-0 scale-95"
                     } overflow-hidden`}
                 >
                   <ul className="pl-4 space-y-0">
@@ -418,15 +517,18 @@ const Navbar = () => {
                       <li key={index}>
                         <div
                           className="py-3 text-base transition-all duration-500 text-black flex justify-between items-center cursor-pointer"
-                          onClick={() => toggleSubmenu(index)}
+                          onClick={() => {
+                            toggleSubmenu(index);
+                            setIsSidebarOpen(false);
+                          }}
                         >
-                          {service.title === "Technology & Development" ? (
-                            <a href="/it-services" className="">
-                              {service.title}
-                            </a>
-                          ) : (
+                          {/* {service.title === "Technology & Development" ? ( */}
+                          <Link href={service.link} className="">
+                            {service.title}
+                          </Link>
+                          {/* ) : (
                             <span>{service.title}</span>
-                          )}
+                          )} */}
 
                           {/* {activeService === index ? (
                           <ChevronDown className="h-5 w-5" />
@@ -435,7 +537,9 @@ const Navbar = () => {
                         )} */}
                         </div>
                         <div
-                          className={`overflow-hidden transition-max-height duration-500 ${activeService === index ? "max-h-[1000px]" : "max-h-0"
+                          className={`overflow-hidden transition-max-height duration-500 ${activeService === index
+                              ? "max-h-[1000px]"
+                              : "max-h-0"
                             }`}
                         >
                           <ul className="pl-4 text-sm text-gray-600">
@@ -502,4 +606,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
