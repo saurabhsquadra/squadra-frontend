@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import plusIcon from '@/utilities/icons/plus-icon.svg'
-import minusIcon from '@/utilities/icons/minus-icon.svg'
+
 import applyIcon from '@/utilities/icons/apply-icon.svg'
 import shareFileIcon from '@/utilities/icons/share-file-icon.svg'
 // import linkedInIcon from '@/utilities/icons/linkedin-icon.svg'
