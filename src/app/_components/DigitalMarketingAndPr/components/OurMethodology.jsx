@@ -93,7 +93,9 @@ const OurMethodology = () => {
             </div>
 
             <div className="m-4">
-              <Image fill
+              <Image 
+              width={474}
+              height={274}
                 src={section.imageUrl}
                 alt="Section"
                 className="w-full md:w-[274px] lg:w-[474px] bg-gray-700 rounded-lg object-cover"

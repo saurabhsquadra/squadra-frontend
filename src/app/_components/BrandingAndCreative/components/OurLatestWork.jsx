@@ -59,8 +59,9 @@ const OurLatestWork = () => {
               }`}
             >
               <Image 
-              width={711}
-              height={468}
+              unoptimized
+              width={200}
+              height={200}
                 src={ourWorkImages[rowIndex].src}
                 alt={ourWorkImages[rowIndex].alt}
                 className="w-full h-full object-cover rounded-xl"
@@ -71,8 +72,10 @@ const OurLatestWork = () => {
                 rowIndex === 0 ? "lg:w-2/3" : "lg:w-1/3"
               }`}
             >
-              <Image width={711}
-                height={468}
+              <Image 
+              unoptimized
+              width={200}
+              height={200}
                 src={ourWorkImages[rowIndex + 1].src}
                 alt={ourWorkImages[rowIndex + 1].alt}
                 className="w-full h-full object-cover rounded-xl"
@@ -80,28 +83,32 @@ const OurLatestWork = () => {
             </div>
           </div>
         ))}
-      </div>
-      <div className="w-full px-6 py-12 flex flex-col">
-        {[3, 5].map((rowIndex) => (
-          <div key={rowIndex} className="flex flex-wrap">
+
+{[4, 6].map((rowIndex) => (
+          <div key={rowIndex} className="flex flex-wrap ">
             <div
-              className={`h-[363px] md:h-[721px] lg:h-[468px] py-4 lg:py-2 lg:pr-2 w-full rounded-xl overflow-hidden ${rowIndex === 0 ? "lg:w-1/3" : "lg:w-2/3"
-                }`}
+              className={`h-[363px] md:h-[721px] lg:h-[468px] py-4 lg:py-2 lg:pr-2 w-full rounded-xl overflow-hidden ${
+                rowIndex === 0 ? "lg:w-1/3" : "lg:w-2/3"
+              }`}
             >
-              <Image
-                width={711}
-                height={468}
+              <Image 
+              unoptimized
+              width={200}
+              height={200}
                 src={ourWorkImages[rowIndex].src}
                 alt={ourWorkImages[rowIndex].alt}
                 className="w-full h-full object-cover rounded-xl"
               />
             </div>
             <div
-              className={`h-[157px] md:h-[400px] lg:h-[468px] w-full py-4 lg:py-2 lg:pl-2 rounded-xl overflow-hidden ${rowIndex === 0 ? "lg:w-2/3" : "lg:w-1/3"
-                }`}
+              className={`h-[157px] md:h-[400px] lg:h-[468px] w-full py-4 lg:py-2 lg:pl-2 rounded-xl overflow-hidden ${
+                rowIndex === 0 ? "lg:w-2/3" : "lg:w-1/3"
+              }`}
             >
-              <Image width={711}
-                height={468}
+              <Image 
+              unoptimized
+              width={200}
+              height={200}
                 src={ourWorkImages[rowIndex + 1].src}
                 alt={ourWorkImages[rowIndex + 1].alt}
                 className="w-full h-full object-cover rounded-xl"
@@ -110,6 +117,7 @@ const OurLatestWork = () => {
           </div>
         ))}
       </div>
+
       <button className="px-[20px] py-[16px] rounded-xl bg-white">
         View all works ⟶
       </button>

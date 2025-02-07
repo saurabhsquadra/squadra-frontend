@@ -1,5 +1,11 @@
 import Image from "next/image";
 import React from "react";
+import brandStrategyImage from "@/utilities/images/brand-strategy.jpg";
+import logoDesignImage from "@/utilities/images/logo-design.jpg";
+import graphicDesignImage from "@/utilities/images/graphic-design.jpg";
+import visualisationImage from "@/utilities/images/visualization.jpg";
+import brandCollateralImage from "@/utilities/images/Brand-collateral.jpg";
+import industrialDesignImage from "@/utilities/images/industrial-design.jpg";
 
 const OurServices = () => {
   const services = [
@@ -7,31 +13,37 @@ const OurServices = () => {
       title: "Brand Strategy & Consulting",
       description:
         "Coating matagin 30 define and elevate your brand identity to a competitive market.",
+        image: brandStrategyImage
     },
     {
       title: "Logo Design & Brand Identity",
       description:
         "Delivering striking visuals that communicate your brand's story with clarity and creativity.",
+        image: logoDesignImage
     },
     {
       title: "Graphic Design",
       description:
         "Delivering striking visuals that communicate your brand's story with clarity and creativity.",
+        image: graphicDesignImage
     },
     {
       title: "2D/3D Visualisation",
       description:
         "Bringing concepts to life with realistic and engaging visual renderings.",
+        image: visualisationImage
     },
     {
       title: "Brand Collateral",
       description:
         "Designing innovative, user-friendly websites that deliver exceptional digital experiences.",
+        image: brandCollateralImage
     },
     {
       title: "Industrial Product Design",
       description:
         "Transforming ideas into tangible designs that captivate and convert.",
+        image: industrialDesignImage
     },
   ];
 
@@ -60,7 +72,7 @@ const OurServices = () => {
             <p className="text-gray-500 text-[12px] md:text-[22px] lg:text-[16px] md:max-w-[520px] lg:max-w-96">{service.description}</p>
             <div className="h-[154px] md:h-[262px] rounded-t-xl bg-gray-700 flex-shrink-0">
               <Image  
-                src="https://s3-alpha-sig.figma.com/img/3447/fdaf/0721b726292feee33cd8766b60edc96c?Expires=1739750400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=O0Zr6kzkwvQAj5sc3S8jo684jc5QeBBxaf~Li1EYeJx0u-HkvgvRP-VjIic7sLuG-IM1wpAFAnMGf5cTqCUbNIMvtTeGC53KjAJF4br-cVh7BMJAhZCyADe6ntFHPDN8FNoLgRCUSZ32Uf3RMPtQkQKmd7L-P~0tPtzaeZsElxrthAZ7ecsCZSXOsuyusfL3Yv6m1S5H9jS~~lg2cscmgBPW-N4u3R2VEhU1OaOUvvUEDtxGYH1Xh225b3mIsO1hOD1n1MPz75OyI67jvzEw-x9zgMERlfx9rUdDNIWkRy58Ncx0-dDeHa1-0zC5pWXqU9x-wM~HlZVKawZFZzERfQ__"
+                src={service?.image}
                 alt={''}
                 width={435}
                 height={262}

@@ -1271,7 +1271,7 @@ export const HoverButton = ({ href, buttonText, defaultIcon, hoverIcon }: {
       href={href}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="cursor-pointer w-[184px] h-[52px] gap-[16px] rounded-[30px] flex items-center justify-center bg-[#131313] transition-colors duration-300"
+      className="cursor-pointer w-fit p-4 h-[52px] gap-[16px] rounded-[30px] flex items-center justify-center bg-[#131313] transition-colors duration-300"
     >
       <p className="uppercase font-sans text-[16px] font-normal leading-[19.09px] text-[#F5F5F5] text-nowrap">
         {buttonText}

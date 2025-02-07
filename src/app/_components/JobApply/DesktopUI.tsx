@@ -126,14 +126,14 @@ function DesktopUi({jobId}: {jobId: string | string[]}) {
                     <p className='font-medium lg:text-[16px] lg:leading-6 md:text-[16px] md:leading-6 sm:text-md text-md sm:leading-6 text-[#1E3A76] cursor-pointer'>{detailsLoading ?  <Skeleton className="w-[150px] h-[20px] rounded-lg" /> : "Application Form"}</p>
                 </div>
             </div>
-            <div className='py-[40px] lg:px-[124px] md:px-[60px] sm:px-[20px] px-[20px] bg-[#FAFAFA] flex flex-col lg:gap-2 md:gap-2 sm:gap-1 gap-1'>
+            <div className='py-[16px] lg:px-[124px] md:px-[60px] sm:px-[20px] px-[20px] bg-[#FAFAFA] flex flex-col lg:gap-2 md:gap-2 sm:gap-1 gap-1'>
                 <p className='font-medium lg:text-[28px] lg:leading-[33.41px] md:text-[28px] md:leading-[33.41px] sm:text-[20px] sm:leading-[23.87px] text-[20px] leading-[23.87px] text-[#3D3D3D]'>{detailsLoading ?  <Skeleton className="lg:w-[600px] md:w-[600px] sm:w-[300px] w-[300px] h-[30px] rounded-lg" /> : jobDetails?.jobTitle}</p>
                 <div className='flex items-center lg:gap-3 md:gap-3 sm:gap-1 gap-1'>
-                    <p className='font-normal lg:text-[24px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32px] text-[12px] leading-[14.32px] text-[#4F4F4F]'>{detailsLoading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : jobDetails?.location}</p>
+                    <p className='font-normal lg:text-[16px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32px] text-[12px] leading-[14.32px] text-[#4F4F4F]'>{detailsLoading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : jobDetails?.location}</p>
                     <div className='w-[1px] h-[21px] bg-[#B0B0B0]'></div>
-                    <p className='font-normal lg:text-[24px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32px] text-[12px] leading-[14.32px] text-[#4F4F4F]'>{detailsLoading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : jobDetails?.employmentType}</p>
+                    <p className='font-normal lg:text-[16px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32px] text-[12px] leading-[14.32px] text-[#4F4F4F]'>{detailsLoading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : jobDetails?.employmentType}</p>
                     <div className='w-[1px] h-[21px] bg-[#B0B0B0]'></div>
-                    <p className='font-normal lg:text-[24px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32px] text-[12px] leading-[14.32px] text-[#4F4F4F]'>{detailsLoading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : `${jobDetails?.yearsOfExperience} + Years Of Experience`}</p>
+                    <p className='font-normal lg:text-[16px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32px] text-[12px] leading-[14.32px] text-[#4F4F4F]'>{detailsLoading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : `${jobDetails?.yearsOfExperience} + Years Of Experience`}</p>
                 </div>
             </div>
             <div className='pt-[40px] pb-[100px] lg:px-[124px] md:px-[60px] sm:px-[20px] px-[20px]'>
@@ -420,7 +420,7 @@ function DesktopUi({jobId}: {jobId: string | string[]}) {
                         </div>
 
                         {/* Upload Resume */}
-                        <div className="mb-4 w-full">
+                        <div className="mb-10 w-full">
                             <div className='w-full'>
                                 <label htmlFor="first-name" className="block text-sm mb-2">
                                     Resume*

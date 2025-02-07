@@ -116,7 +116,7 @@ function VisualImpactUi() {
         <div className='w-full overflox-x-hidden flex flex-col items-center bg-[#000000] xl:mt-[80px] mt-[64px]'>
 
             {/*Hero section*/}
-            <section  className='overflow-x-hidden my-[60px]'>
+            <section id='hero-section'  className='overflow-x-hidden my-[60px]'>
             <InfiniteSliderWithText/>
             </section>
 
@@ -148,15 +148,15 @@ function VisualImpactUi() {
                                         <p className={`py-1 font-[300] xl:text-[16px] xl:leading-7 lg:text-[14px] lg:leading-[16.71px] md:text-[14px] md:leading-[16.71px] text-[14px] leading-[16.71px] text-[#E7E7E7] sm:text-right text-center ${service.maxParagraphWidth}`}>{service.description}</p>
                                     </div>
                                     <HoverButton
-                                        href="#contact-section"
+                                        href="/it-services#contact-section"
                                         buttonText="Get a Quote"
                                         defaultIcon={arrowRight}
                                         hoverIcon={righticon}
                                     />
                                 </div>
                             </div>
-                            <div className='xl:w-[720px] xl:h-[720px] lg:w-[388px] lg:h-[423px] md:w-[370px] md:h-[423px] sm:w-[370px] sm:h-[423px] w-[350px] h-[356px]'>
-                                <Image src={service.image} alt="Commercial Photography" width={720} height={720} className='xl:w-[720px] xl:h-[720px] lg:w-[388px] lg:h-[423px] sm:w-[370px] sm:h-[423px] w-[350px] h-[356px] object-cover' />
+                            <div className='xl:w-[720px] xl:h-[720px] lg:w-[388px] lg:h-[423px] md:w-[370px] md:h-[423px] sm:w-[370px] sm:h-[423px] w-[318px] h-[356px]'>
+                                <Image src={service.image} alt="Commercial Photography" width={720} height={720} className='xl:w-[720px] xl:h-[720px] lg:w-[388px] lg:h-[423px] sm:w-[370px] sm:h-[423px] w-[318px] h-[356px] object-cover' />
                             </div>
                         </div>
                     )
@@ -220,20 +220,20 @@ function VisualImpactUi() {
                     <p className='font-medium xl:text-[100px] xl:leading-[120px] lg:text-[55px] lg:leading-[65.63px] md:text-[55px] md:leading-[65.63px] text-[55px] leading-[65.63px] text-[#FFFFFF] text-center'>Visual Journeys</p>
                     <p className='font-[300] sm:text-[24px] sm:leading-[28.64px] text-[13px] leading-[15.51px] text-center text-[#B0B0B0] sm:max-w-[596px] max-w-[335px]'>Explore projects where imagination meets execution, turning visions into stunning realities.</p>
                     <HoverButton
-                        href="#contact-section"
+                        href="#portfolio"
                         buttonText="View Portfolio"
                         defaultIcon={arrowRight}
                         hoverIcon={righticon}
                     />
                 </div>
 
-                <div className='flex sm:flex-row flex-col items-center xl:gap-5 lg:gap-[10px] md:gap-[10px] sm:gap-[10px] gap-4'>
+                <div id='portfolio' className='flex sm:flex-row flex-col items-center xl:gap-5 lg:gap-[10px] md:gap-[10px] sm:gap-[10px] gap-4'>
                     <div className='flex items-center xl:gap-5 lg:gap-[10px] md:gap-[10px] sm:gap-[10px] gap-4'>
                         <div className='flex flex-col xl:gap-5 lg:gap-[10px] md:gap-[10px] sm:gap-[10px] gap-4'>
                             {firstVisualImagesSet?.map((item,index) => {
                                 return (
-                                    <div key={index} className='xl:w-[200px] xl:h-[261px] lg:w-[117px] lg:h-[187px] md:w-[110px] md:h-[187px] sm:w-[110px] sm:h-[187px] w-[144px] h-[232.67px]'>
-                                        <Image src={item?.image} alt='Visual one' className='xl:w-[200px] xl:h-[261px] lg:w-[117px] lg:h-[187px] md:w-[117px] md:h-[187px] sm:w-[117px] sm:h-[187px] w-[144px] h-[232.67px] object-cover' />
+                                    <div key={index} className='xl:w-[200px] xl:h-[261px] lg:w-[117px] lg:h-[187px] md:w-[110px] md:h-[187px] sm:w-[110px] sm:h-[187px] w-[137px] h-[232.67px]'>
+                                        <Image src={item?.image} alt='Visual one' className='xl:w-[200px] xl:h-[261px] lg:w-[117px] lg:h-[187px] md:w-[117px] md:h-[187px] sm:w-[117px] sm:h-[187px] w-[137px] h-[232.67px] object-cover' />
                                     </div>
                                 )
                             })}
@@ -241,22 +241,22 @@ function VisualImpactUi() {
                         <div className='flex flex-col xl:gap-5 lg:gap-[10px] md:gap-[10px] sm:gap-[10px] gap-4'>
                             {secondVisualImagesSet?.map((item,index) => {
                                 return (
-                                    <div key={index} className='xl:w-[270px] xl:h-[402px] lg:w-[157px] lg:h-[286px] md:w-[150px] md:h-[286px] sm:w-[150px] sm:h-[286px] w-[217px] h-[357px]'>
-                                        <Image src={item?.image} alt='Visual one' className='xl:w-[270px] xl:h-[402px] lg:w-[157px] lg:h-[286px] md:w-[157px] md:h-[286px] sm:w-[157px] sm:h-[286px] w-[217px] h-[357px] object-cover' />
+                                    <div key={index} className='xl:w-[270px] xl:h-[402px] lg:w-[157px] lg:h-[286px] md:w-[150px] md:h-[286px] sm:w-[150px] sm:h-[286px] w-[204px] h-[357px]'>
+                                        <Image src={item?.image} alt='Visual one' className='xl:w-[270px] xl:h-[402px] lg:w-[157px] lg:h-[286px] md:w-[157px] md:h-[286px] sm:w-[157px] sm:h-[286px] w-[204px] h-[357px] object-cover' />
                                     </div>
                                 )
                             })}
                         </div>
                     </div>
-                    <div className='xl:w-[420px] xl:h-[824px] lg:w-[236px] lg:h-[582px] md:w-[204px] md:h-[582px] sm:w-[204px] sm:h-[582px] w-[375px] h-[824px]'>
-                        <Image src={visualImageSix} alt='Visual one' className='xl:w-[420px] xl:h-[824px] lg:w-[236px] lg:h-[582px] md:w-[236px] md:h-[582px] sm:w-[236px] sm:h-[582px] w-[375px] h-[824px] object-cover' />
+                    <div className='xl:w-[420px] xl:h-[824px] lg:w-[236px] lg:h-[582px] md:w-[204px] md:h-[582px] sm:w-[204px] sm:h-[582px] w-[355px] h-[824px]'>
+                        <Image src={visualImageSix} alt='Visual one' className='xl:w-[420px] xl:h-[824px] lg:w-[236px] lg:h-[582px] md:w-[236px] md:h-[582px] sm:w-[236px] sm:h-[582px] w-[355px] h-[824px] object-cover' />
                     </div>
                     <div className='flex items-center xl:gap-5 lg:gap-[10px] md:gap-[10px] sm:gap-[10px] gap-4'>
                         <div className='flex flex-col xl:gap-5 lg:gap-[10px] md:gap-[10px] sm:gap-[10px] gap-4'>
                             {ThirdVisualImagesSet?.map((item,index) => {
                                 return (
-                                    <div key={index} className='xl:w-[270px] xl:h-[402px] lg:w-[157px] lg:h-[286px] md:w-[150px] md:h-[286px] sm:w-[150px] sm:h-[286px] w-[217px] h-[357px]'>
-                                        <Image src={item?.image} alt='Visual one' className='xl:w-[270px] xl:h-[402px] lg:w-[157px] lg:h-[286px] md:w-[157px] md:h-[286px] sm:w-[157px] sm:h-[286px] w-[217px] h-[357px] object-cover' />
+                                    <div key={index} className='xl:w-[270px] xl:h-[402px] lg:w-[157px] lg:h-[286px] md:w-[150px] md:h-[286px] sm:w-[150px] sm:h-[286px] w-[204px] h-[357px]'>
+                                        <Image src={item?.image} alt='Visual one' className='xl:w-[270px] xl:h-[402px] lg:w-[157px] lg:h-[286px] md:w-[157px] md:h-[286px] sm:w-[157px] sm:h-[286px] w-[204px] h-[357px] object-cover' />
                                     </div>
                                 )
                             })}
@@ -264,8 +264,8 @@ function VisualImpactUi() {
                         <div className='flex flex-col xl:gap-5 lg:gap-[10px] md:gap-[10px] sm:gap-[10px] gap-4'>
                             {FourVisualImagesSet?.map((item,index) => {
                                 return (
-                                    <div key={index} className='xl:w-[200px] xl:h-[261px] lg:w-[117px] lg:h-[187px] md:w-[110px] md:h-[187px] sm:w-[110px] sm:h-[187px] w-[144px] h-[232.67px]'>
-                                        <Image src={item?.image} alt='Visual one' className='xl:w-[200px] xl:h-[261px] lg:w-[117px] lg:h-[187px] md:w-[117px] md:h-[187px] sm:w-[117px] sm:w-[117px] sm:h-[187px] w-[144px] h-[232.67px] object-cover' />
+                                    <div key={index} className='xl:w-[200px] xl:h-[261px] lg:w-[117px] lg:h-[187px] md:w-[110px] md:h-[187px] sm:w-[110px] sm:h-[187px] w-[137px] h-[232.67px]'>
+                                        <Image src={item?.image} alt='Visual one' className='xl:w-[200px] xl:h-[261px] lg:w-[117px] lg:h-[187px] md:w-[117px] md:h-[187px] sm:w-[117px]  sm:h-[187px] w-[137px] h-[232.67px] object-cover' />
                                     </div>
                                 )
                             })}

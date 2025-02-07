@@ -173,7 +173,7 @@ function DesktopUi() {
                                 jobs?.data?.slice(0, 3)?.map((category: { _id: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; jobsCount: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; jobs: any[] }, index: React.Key | null | undefined) => (
                                     <div key={index}>
                                         <div
-                                            className={`border-b ${openIndexes.includes(index) ? "border-t border-[#06135B]" : "border-[#E7E7E7]"}`}
+                                            className={`border-b border-t ${openIndexes.includes(index) ? "border-t border-[#06135B]" : "border-[#E7E7E7]"}`}
                                         >
                                             <button
                                                 className="flex justify-between items-center w-full xl:py-7 lg:py-7 md:py-7 sm:py-7 py-4 text-left"
@@ -190,7 +190,7 @@ function DesktopUi() {
                                             </button>
                                             {openIndexes.includes(index) && (
                                                 <div>
-                                                    <ul className="xl:pl-[100px] lg:pl-[100px] md:pl-[100px] sm:pl-[100px] pl-[6px] border-t border-[#B0B0B0]">
+                                                    <ul className="xl:pl-[0px] lg:pl-[0px] md:pl-[0px] sm:pl-[0px] pl-[0px] border-t border-[#B0B0B0]">
                                                         {category.jobs.map((job: {
                                                             _id: React.Key | null | undefined; jobTitle: string
                                                             jobDescription: string; companyDescription: string; location: string; jobType: string; jobLevel: string; salary: string; experience: string; benefits: string; applyLink: string; employmentType: string

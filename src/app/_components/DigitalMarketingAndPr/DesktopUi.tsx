@@ -6,11 +6,12 @@ import { ArrowDown } from "lucide-react";
 // import OurLatestWork from "./components/OurLatestWork"
 // import TrustedBy from "./components/TrustedBy"
 import WorkTogether from "./components/WorkTogether";
+import Link from "next/link";
 const DesktopUi = () => {
   return (
     <>
       <div className="relative w-full h-screen bg-white">
-        <video
+      <video
           className="absolute inset-0 w-full h-full object-cover"
           autoPlay
           loop
@@ -34,12 +35,13 @@ const DesktopUi = () => {
               brand and your audience.
             </p>
           </div>
-          <p className="text-white flex gap-2 mb-4 text-[13px] justify-center w-[300px] md:w-full md:text-[16px]">
+          <Link href="#explore" className="text-white flex gap-2 mb-4 text-[13px] justify-center w-[300px] md:w-full md:text-[16px]">
           <ArrowDown size={20}/> Scroll to explore
-        </p>
+        </Link>
         </div>
      
       </div>
+      
       <div className="h-fit flex flex-col  w-full  items-center bg-black">
         <div className="max-w-[1300px] flex flex-col items-center py-20 md:py-[161px] bg-black">
           <p className="text-white text-sm md:text-[16px] mb-2">
@@ -57,7 +59,9 @@ const DesktopUi = () => {
             fresh approach.
           </p>
         </div>
+        <div id="explore">
         <OurMethodology />
+        </div>
         {/* <UnleashPotential /> */}
         <WhatWeDo />
         <InfiniteSliderBasic />

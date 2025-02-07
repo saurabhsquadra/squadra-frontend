@@ -119,7 +119,7 @@ function DesktopUi() {
                         </button>
                         {openIndexes.includes(index) && (
                             <div>
-                                <ul className="xl:pl-[100px] lg:pl-[100px] md:pl-[100px] sm:pl-[100px] pl-[6px] border-t border-[#B0B0B0]">
+                                <ul className="xl:pl-[0px] lg:pl-[0px] md:pl-[0px] sm:pl-[0px] pl-[0px] border-t border-[#B0B0B0]">
                                     {/* @ts-ignore */}
                                     {category.jobs?.map((job, jobIndex) => (
                                         <li

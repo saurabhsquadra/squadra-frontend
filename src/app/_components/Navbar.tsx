@@ -1,22 +1,23 @@
-"use client";
+"use client"
 
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import logo from "../../utilities/icons/Logo-1.svg";
-import callIcon from "../../utilities/icons/Call.svg";
-import { usePathname, useRouter } from "next/navigation";
-import Link from "next/link";
-import { Menu, X, ChevronDown, ChevronRight, ArrowRight } from "lucide-react";
-import { ContactPopover } from "./_contactUsComponents/ContactPopover";
-import itLogo from "@/utilities/images/it-logo.svg";
-import itLogocolor from "@/utilities/images/itLogoColoured.svg";
-import TextSlideUp from "./SlideAnimate";
+import { useState, useEffect } from "react"
+import Image from "next/image"
+import logo from "../../utilities/icons/Logo-1.svg"
+import callIcon from "../../utilities/icons/Call.svg"
+import { usePathname, useRouter } from "next/navigation"
+import Link from "next/link"
+import { Menu, X, ChevronDown, ChevronRight, ArrowRight } from "lucide-react"
+import { ContactPopover } from "./_contactUsComponents/ContactPopover"
+import itLogo from "@/utilities/images/it-logo.svg"
+import itLogocolor from "@/utilities/images/itLogoColoured.svg"
+import TextSlideUp from "./SlideAnimate"
+import { AnimatePresence, motion } from "framer-motion"
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isServicesHovered, setIsServicesHovered] = useState(false);
-  const pathname = usePathname();
-  const router = useRouter();
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+  const [isServicesHovered, setIsServicesHovered] = useState(false)
+  const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     if (
@@ -25,35 +26,35 @@ const Navbar = () => {
       pathname.includes("/branding-and-creative") ||
       pathname.includes("/visual-impact")
     )
-      return;
+      return
     const handleScroll = () => {
       if (window.scrollY > 50) {
-        setIsScrolled(true);
+        setIsScrolled(true)
       } else {
-        setIsScrolled(false);
+        setIsScrolled(false)
       }
-    };
+    }
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [pathname]);
+      window.removeEventListener("scroll", handleScroll)
+    }
+  }, [pathname])
 
   const handleNavigation = (path: string) => {
-    router.push(path);
-    setIsSidebarOpen(false);
-  };
+    router.push(path)
+    setIsSidebarOpen(false)
+  }
 
-  const primaryColor = "#FBAE17";
+  const primaryColor = "#FBAE17"
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen);
-  };
+    setIsSidebarOpen(!isSidebarOpen)
+  }
 
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [activeService, setActiveService] = useState<number | null>(null);
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [activeService, setActiveService] = useState<number | null>(null)
 
   const services = [
     {
@@ -104,17 +105,16 @@ const Navbar = () => {
         // "Cinematic Visuals",
       ],
     },
-  ];
+  ]
 
-  const toggleServices = () => setIsServicesOpen(!isServicesOpen);
-  const toggleSubmenu = (index: number) =>
-    setActiveService(activeService === index ? null : index);
+  const toggleServices = () => setIsServicesOpen(!isServicesOpen)
+  const toggleSubmenu = (index: number) => setActiveService(activeService === index ? null : index)
 
   return (
     <>
       <nav
         className={`fixed z-50 w-full p-2 lg:px-32 transition-all duration-300 ${pathname.includes("/contact-us") ||
-          pathname.includes("/our-services") ||
+            pathname.includes("/our-services") ||
             pathname.includes("/branding-and-creative") ||
             pathname.includes("/openings") ||
             pathname.includes("/direct-apply") ||
@@ -135,7 +135,7 @@ const Navbar = () => {
                 <Image
                   src={
                     pathname.includes("/contact-us") ||
-                    pathname.includes("/our-services") ||
+                      pathname.includes("/our-services") ||
                       pathname.includes("/branding-and-creative") ||
                       pathname.includes("/openings") ||
                       pathname.includes("/direct-apply") ||
@@ -153,23 +153,14 @@ const Navbar = () => {
                   height={40}
                   layout="intrinsic"
                 />
-                <TextSlideUp
-                  isScroll={isScrolled}
-                  isSidebarOpen={isSidebarOpen}
-                />
+                <TextSlideUp isScroll={isScrolled} isSidebarOpen={isSidebarOpen} />
               </div>
             </Link>
           )}
           <div className=" flex items-center justify-center">
             {pathname.includes("/it-services") && (
               <Link href={"/"}>
-                <Image
-                  src={isScrolled ? itLogocolor : itLogo}
-                  alt="Logo"
-                  width={120}
-                  height={40}
-                  layout="intrinsic"
-                />
+                <Image src={isScrolled ? itLogocolor : itLogo} alt="Logo" width={120} height={40} layout="intrinsic" />
               </Link>
             )}
           </div>
@@ -177,9 +168,7 @@ const Navbar = () => {
           {!pathname.includes("/it-services") && (
             <ul className="lg:flex hidden font-[500] space-x-8">
               <Link
-                className={`cursor-pointer py-5 ${pathname.includes("/about-us")
-                    ? `text-[${primaryColor}]`
-                    : "hover:text-[#FBAE17]"
+                className={`cursor-pointer py-5 ${pathname.includes("/about-us") ? `text-[${primaryColor}]` : "hover:text-[#FBAE17]"
                   }`}
                 href={"/about-us"}
               >
@@ -187,27 +176,63 @@ const Navbar = () => {
               </Link>
 
               <li
-                className="relative py-5 hover:text-[#FBAE17] cursor-pointer"
+                className="relative py-5 transition duration-500 ease-in-out hover:text-[#FBAE17] cursor-pointer"
                 onClick={() => {
-                  setIsServicesHovered(!isServicesHovered);
-                  setIsScrolled(!isScrolled);
+                  setIsServicesHovered(!isServicesHovered)
+                  setIsScrolled(!isScrolled)
                 }}
                 onMouseEnter={() => {
-                  setIsServicesHovered(true);
-                  setIsScrolled(true);
+                  setTimeout(() => {
+                    setIsServicesHovered(true)
+                    setIsScrolled(true)
+                  }, 100)
                 }}
                 onMouseLeave={() => {
-                  setIsServicesHovered(false);
-                  setIsScrolled(false);
+                  setTimeout(() => {
+                    setIsServicesHovered(false)
+                    setIsScrolled(false)
+                  }, 100)
                 }}
               >
                 Services
                 {/* Services Mega Menu */}
+                <AnimatePresence>
+                  {isServicesHovered && (
+    <motion.div 
+      initial={{
+        opacity: 0,
+        y: -20,
+        scale: 0.98,
+        x: '-50%'  // Keep the centering during animation
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        x: '-50%'  // Keep the centering during animation
+      }}
+      exit={{
+        opacity: 0,
+        y: -10,
+        scale: 0.98,
+        x: '-50%'  // Keep the centering during animation
+      }}
+      transition={{
+        duration: 0.3,
+        ease: [0.4, 0, 0.2, 1]
+      }}
+        style={{
+        position: 'fixed',
+        top: '4.5rem',
+        left: '50%',
+        width: '100vw',
+        maxWidth: '100vw',
+        transform: 'translateX(-50%)',
+      }}
+      className="bg-white text-black shadow-xl z-50"
+    >
                 <div
-                  className={`absolute top-[4.5rem] ${isServicesHovered
-                      ? "opacity-100 visible"
-                      : "opacity-0 invisible"
-                    } transition-all w-screen duration-300 lg:translate-x-[-48%] xl:translate-x-[-52%]  bg-white text-black shadow-xl`}
+                className="container mx-auto"
                 >
                   <div className="p-8 flex flex-col">
                     <div className="flex justify-center mb-4">
@@ -229,7 +254,9 @@ const Navbar = () => {
                           Impact.
                         </h2>
 
-                        <Link href='/our-services' className="py-4 text-sm flex gap-2 hover:gap-4 transition-all">Go to overview <ArrowRight/></Link>
+                        {/* <Link href="/our-services" className="py-4 text-sm flex gap-2 hover:gap-4 transition-all">
+                          Go to overview <ArrowRight />
+                        </Link> */}
                       </div>
 
                       {/* Right Columns - Services */}
@@ -240,8 +267,8 @@ const Navbar = () => {
                             <Link
                               onClick={() =>
                                 setTimeout(() => {
-                                  setIsServicesHovered(false);
-                                  setIsScrolled(false);
+                                  setIsServicesHovered(false)
+                                  setIsScrolled(false)
                                 }, 500)
                               }
                               href="/it-services"
@@ -266,8 +293,8 @@ const Navbar = () => {
                             <Link
                               onClick={() =>
                                 setTimeout(() => {
-                                  setIsServicesHovered(false);
-                                  setIsScrolled(false);
+                                  setIsServicesHovered(false)
+                                  setIsScrolled(false)
                                 }, 500)
                               }
                               href="/branding-and-creative"
@@ -292,8 +319,8 @@ const Navbar = () => {
                             <Link
                               onClick={() =>
                                 setTimeout(() => {
-                                  setIsServicesHovered(false);
-                                  setIsScrolled(false);
+                                  setIsServicesHovered(false)
+                                  setIsScrolled(false)
                                 }, 500)
                               }
                               href="/digital-marketing-and-pr"
@@ -320,13 +347,15 @@ const Navbar = () => {
                             <Link
                               onClick={() =>
                                 setTimeout(() => {
-                                  setIsServicesHovered(false);
-                                  setIsScrolled(false);
+                                  setIsServicesHovered(false)
+                                  setIsScrolled(false)
                                 }, 500)
                               }
                               href="/visual-impact"
                               className=" cursor-pointer"
-                            >Visual Impact</Link>
+                            >
+                              Visual Impact
+                            </Link>
                           </h3>
                           <ul className="space-y-2 text-sm text-gray-600">
                             <li>Commercial Photography</li>
@@ -340,9 +369,7 @@ const Navbar = () => {
 
                         {/* Animation & E-learning */}
                         <div>
-                          <h3 className="font-semibold mb-4">
-                            Animation & E-learning
-                          </h3>
+                          <h3 className="font-semibold mb-4">Animation & E-learning</h3>
                           <ul className="space-y-2 text-sm text-gray-600">
                             <li>2D/3D Animation</li>
                             <li>Explainer Videos</li>
@@ -357,21 +384,21 @@ const Navbar = () => {
                     {/* Technology & Development Section */}
 
                     {/* Go to overview link */}
-                    {/* <div className="text-start">
+                    <div className="ml-20">
                     <Link 
-                      href="#" 
+                      href="/our-services" 
                       className="inline-flex items-center text-gray-900 hover:underline"
                     >
                       Go to overview <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
-                  </div> */}
                   </div>
-                </div>
+                  </div>
+                      </div></motion.div>
+                  )}
+                </AnimatePresence>
               </li>
               <Link
-                className={`cursor-pointer py-5 ${pathname.includes("/careers")
-                    ? `text-[${primaryColor}]`
-                    : "hover:text-[#FBAE17]"
+                className={`cursor-pointer py-5 ${pathname.includes("/careers") ? `text-[${primaryColor}]` : "hover:text-[#FBAE17]"
                   }`}
                 href={"/careers"}
               >
@@ -385,7 +412,7 @@ const Navbar = () => {
             {true ? (
               <li
                 className={`hidden lg:block cursor-pointer py-[7px] px-[12px] rounded-[4px] bg-[#06135B] ${pathname.includes("/contact-us") ||
-                  pathname.includes("/our-services") ||
+                    pathname.includes("/our-services") ||
                     pathname.includes("/branding-and-creative") ||
                     pathname.includes("/openings") ||
                     pathname.includes("/direct-apply") ||
@@ -416,11 +443,7 @@ const Navbar = () => {
                 </Link>
             </li> */}
             {/* Hamburger menu icon for mobile and tablet */}
-            <button
-              className="lg:hidden"
-              onClick={toggleSidebar}
-              aria-label="Toggle menu"
-            >
+            <button className="lg:hidden" onClick={toggleSidebar} aria-label="Toggle menu">
               <Menu className="h-6 w-6" />
             </button>
           </ul>
@@ -435,35 +458,16 @@ const Navbar = () => {
         <div className="relative h-full flex flex-col">
           <div className="p-6">
             {pathname.includes("/it-services") ? (
-              <Image
-                src={itLogocolor}
-                alt="Logo"
-                width={120}
-                height={40}
-                layout="intrinsic"
-              />
+              <Image src={itLogocolor || "/placeholder.svg"} alt="Logo" width={120} height={40} layout="intrinsic" />
             ) : (
               <div>
-                <TextSlideUp
-                  isScroll={isScrolled}
-                  isSidebarOpen={isSidebarOpen}
-                />
+                <TextSlideUp isScroll={isScrolled} isSidebarOpen={isSidebarOpen} />
 
-                <Image
-                  src={logo}
-                  alt="Logo"
-                  width={120}
-                  height={40}
-                  layout="intrinsic"
-                />
+                <Image src={logo || "/placeholder.svg"} alt="Logo" width={120} height={40} layout="intrinsic" />
               </div>
             )}
           </div>
-          <button
-            className="absolute top-4 right-4 p-2"
-            onClick={toggleSidebar}
-            aria-label="Close menu"
-          >
+          <button className="absolute top-4 right-4 p-2" onClick={toggleSidebar} aria-label="Close menu">
             <X className="h-6 w-6" />
           </button>
 
@@ -472,9 +476,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/about-us"
-                  className={`block py-4 text-base ${pathname.includes("/about-us")
-                      ? `text-[${primaryColor}]`
-                      : "text-black"
+                  className={`block py-4 text-base ${pathname.includes("/about-us") ? `text-[${primaryColor}]` : "text-black"
                     } border-b border-gray-200`}
                   onClick={toggleSidebar}
                 >
@@ -484,9 +486,7 @@ const Navbar = () => {
               <li>
                 <Link
                   href="/careers"
-                  className={`block py-4 text-base ${pathname.includes("/careers")
-                      ? `text-[${primaryColor}]`
-                      : "text-black"
+                  className={`block py-4 text-base ${pathname.includes("/careers") ? `text-[${primaryColor}]` : "text-black"
                     } border-b border-gray-200`}
                   onClick={toggleSidebar}
                 >
@@ -500,16 +500,10 @@ const Navbar = () => {
                   onClick={toggleServices}
                 >
                   <span>Services</span>
-                  {isServicesOpen ? (
-                    <ChevronDown className="h-5 w-5" />
-                  ) : (
-                    <ChevronRight className="h-5 w-5" />
-                  )}
+                  {isServicesOpen ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
                 </div>
                 <div
-                  className={`transition-transform duration-500 ${isServicesOpen
-                      ? "max-h-[1000px] opacity-100 scale-100"
-                      : "max-h-0 opacity-0 scale-95"
+                  className={`transition-transform duration-500 ${isServicesOpen ? "max-h-[1000px] opacity-100 scale-100" : "max-h-0 opacity-0 scale-95"
                     } overflow-hidden`}
                 >
                   <ul className="pl-4 space-y-0">
@@ -518,8 +512,8 @@ const Navbar = () => {
                         <div
                           className="py-3 text-base transition-all duration-500 text-black flex justify-between items-center cursor-pointer"
                           onClick={() => {
-                            toggleSubmenu(index);
-                            setIsSidebarOpen(false);
+                            toggleSubmenu(index)
+                            setIsSidebarOpen(false)
                           }}
                         >
                           {/* {service.title === "Technology & Development" ? ( */}
@@ -537,17 +531,12 @@ const Navbar = () => {
                         )} */}
                         </div>
                         <div
-                          className={`overflow-hidden transition-max-height duration-500 ${activeService === index
-                              ? "max-h-[1000px]"
-                              : "max-h-0"
+                          className={`overflow-hidden transition-max-height duration-500 ${activeService === index ? "max-h-[1000px]" : "max-h-0"
                             }`}
                         >
                           <ul className="pl-4 text-sm text-gray-600">
                             {service.items.map((item, i) => (
-                              <li
-                                key={i}
-                                className="py-2 border-b border-gray-200"
-                              >
+                              <li key={i} className="py-2 border-b border-gray-200">
                                 {item}
                               </li>
                             ))}
@@ -581,13 +570,7 @@ const Navbar = () => {
               className="flex items-center justify-center w-full py-3 px-4 text-white bg-black hover:bg-gray-800 transition-colors duration-300"
               onClick={toggleSidebar}
             >
-              <Image
-                src={callIcon}
-                alt="Call Icon"
-                width={24}
-                height={24}
-                className="mr-2"
-              />
+              <Image src={callIcon || "/placeholder.svg"} alt="Call Icon" width={24} height={24} className="mr-2" />
               <span>Contact Us</span>
             </Link>
           </div>
@@ -595,14 +578,9 @@ const Navbar = () => {
       </div>
 
       {/* Overlay */}
-      {isSidebarOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
-          onClick={toggleSidebar}
-        />
-      )}
+      {isSidebarOpen && <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={toggleSidebar} />}
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

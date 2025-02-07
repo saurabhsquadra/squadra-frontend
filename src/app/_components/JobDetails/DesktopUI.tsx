@@ -23,7 +23,7 @@ function DesktopUi({ sections,jobDetails,loading }: JobListingProps) {
     const router = useRouter()
   
 
-    const [openIndexes, setOpenIndexes] = useState<number[]>([])
+    const [openIndexes, setOpenIndexes] = useState<number[]>([0,1,2,3,4])
     
 
     const toggleAccordion = (index: number) => {
@@ -71,21 +71,21 @@ function DesktopUi({ sections,jobDetails,loading }: JobListingProps) {
                 <p className='font-medium lg:text-[16px] lg:leading-6 md:text-[16px] md:leading-6 sm:text-md text-md sm:leading-6 text-[#1E3A76] cursor-pointer'>{loading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[50px] w-[50px] h-[20px] rounded-lg" /> : jobDetails?.jobTitle}</p>
             </div>
 
-            <div className='lg:pt-[60px] md:pt-[60px] sm:pt-[40px] pt-[40px] pb-[40px] lg:ml-[124px] md:ml-[60px] sm:ml-[20px] ml-[20px] lg:w-[60%] md:w-[714px]'>
+            <div className='lg:pt-[8px] md:pt-[60px] sm:pt-[40px] pt-[40px] pb-[40px] lg:ml-[124px] md:ml-[60px] sm:ml-[20px] ml-[20px] lg:w-[60%] md:w-[714px]'>
                 <div className='flex flex-col lg:gap-[40px] md:gap-[40px] sm:gap-[16px] gap-[16px]'>
-                    <div className='flex flex-col lg:gap-[12px] md:gap-[12px] sm:gap-[4px] gap-[4px]'>
-                        <p className='font-medium lg:text-[40px] lg:leading-[47.73px] md:text-[40px] md:leading-[47.73px] sm:text-[20px] sm:leading-[23.87px] text-[25px] leading-[23.87px] text-[#3D3D3D]'>{loading ?  <Skeleton className="lg:w-[600px] md:w-[600px] sm:w-[300px] w-[300px] h-[30px] rounded-lg" /> : jobDetails?.jobTitle}</p>
-                        <div className='flex xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col xl:items-center lg:items-center md:items-center sm:items-start items-start lg:gap-6 md:gap-6 sm:gap-1 gap-1'>
-                            <p className='font-normal lg:text-[24px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32pxpx]  text-[#4F4F4F]'>{loading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : jobDetails?.jobCategory}</p>
+                    <div className='flex flex-col lg:gap-[1px] md:gap-[12px] sm:gap-[4px] gap-[4px]'>
+                        <p className='font-medium lg:text-[28px] lg:leading-[47.73px] md:text-[40px] md:leading-[47.73px] sm:text-[20px] sm:leading-[23.87px] text-[25px] leading-[23.87px] text-[#3D3D3D]'>{loading ?  <Skeleton className="lg:w-[600px] md:w-[600px] sm:w-[300px] w-[300px] h-[30px] rounded-lg" /> : jobDetails?.jobTitle}</p>
+                        <div className='flex xl:flex-row lg:flex-row md:flex-row sm:flex-col flex-col xl:items-center lg:items-center md:items-center sm:items-start items-start lg:gap-4 md:gap-6 sm:gap-1 gap-1'>
+                            <p className='font-normal lg:text-[16px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32pxpx]  text-[#4F4F4F]'>{loading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : jobDetails?.jobCategory}</p>
                             <div className='w-[1px] h-[21px] bg-[#B0B0B0] hidden md:flex'></div>
-                            <p className='font-normal lg:text-[24px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32pxpx] text-[#4F4F4F]'>{loading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : jobDetails?.employmentType}</p>
+                            <p className='font-normal lg:text-[16px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32pxpx] text-[#4F4F4F]'>{loading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : jobDetails?.employmentType}</p>
                             <div className='w-[1px] h-[21px] bg-[#B0B0B0] hidden md:flex'></div>
-                            <p className='font-normal lg:text-[24px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32pxpx] text-[#4F4F4F]'>{loading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : `${jobDetails?.yearsOfExperience}+ Years Of Experience`}</p>
+                            <p className='font-normal lg:text-[16px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[12px] sm:leading-[14.32pxpx] text-[#4F4F4F]'>{loading ?  <Skeleton className="lg:w-[150px] md:w-[150px] sm:w-[90px] w-[90px] h-[30px] rounded-lg" /> : `${jobDetails?.yearsOfExperience}+ Years Of Experience`}</p>
                         </div>
                     </div>
                     <div className='flex items-center justify-between'>
                         <div className='hidden sm:block'>
-                        <div onClick={() => { router.push(`/job-apply/${jobDetails?._id}`) }} className='flex items-center w-fit h-[44px] rounded-[4px] px-[24px] bg-[#06135B] font-medium text-[16px] leading-[19.09px] text-[#FFFFFF] cursor-pointer'>Apply for this job</div>
+                        <div onClick={() => { router.push(`/job-apply/${jobDetails?._id}`) }} className='flex items-center w-fit h-[40px] rounded-[4px] px-[24px] bg-[#06135B] font-medium text-[16px] leading-[19.09px] text-[#FFFFFF] cursor-pointer'>Apply for this job</div>
                         </div>
                     <div className='flex items-center gap-3 py-3'>
                         <p onClick={handleShare} className='font-medium text-[16px] leading-[19.09px] text-[#3D3D3D] cursor-pointer'>Share</p>
@@ -106,18 +106,18 @@ function DesktopUi({ sections,jobDetails,loading }: JobListingProps) {
                     {sections?.map((item, index) => (
                         <div key={index} className={`border-b border-[#E7E7E7] ${index === 0 ? "border-t" : ""}`}>
                             <button
-                                className="flex justify-between items-center w-full lg:py-7 md:py-7 sm:py-4 py-4 text-left"
-                                onClick={() => toggleAccordion(index)}
+                                className="flex justify-between items-center w-full lg:py-5 md:py-7 sm:py-4 py-4 text-left"
+                                // onClick={() => toggleAccordion(index)}
                             >
-                                <span className="lg:text-[24px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[16px] sm:leading-[19px] text-[16px] leading-[19px] text-[#3D3D3D] font-medium">{item.title}</span>
-                                {openIndexes.includes(index) ? (
+                                <span className="lg:text-[20px] lg:leading-[28.64px] md:text-[24px] md:leading-[28.64px] sm:text-[16px] sm:leading-[19px] text-[16px] leading-[19px] text-[#3D3D3D] font-medium">{item.title}</span>
+                                {/* {openIndexes.includes(index) ? (
                                     <Image src={minusIcon} alt='close' />
                                 ) : (
                                     <Image src={plusIcon} alt='open' />
-                                )}
+                                )} */}
                             </button>
                             {openIndexes.includes(index) && (
-                                <div className="pb-6 pt-1 pr-10 font-normal lg:text-[18px] lg:leading-7 md:text-[18px] md:leading-7 sm:text-[14px] sm:leading-[21px] text-[#4F4F4F]">
+                                <div className="pb-6 pt-1 pr-10 font-normal lg:text-[16px] lg:leading-7 md:text-[18px] md:leading-7 sm:text-[14px] sm:leading-[21px] text-[#4F4F4F]">
                                     {item.content}
                                 </div>
                             )}
