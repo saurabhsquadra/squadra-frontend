@@ -8,7 +8,7 @@ const WorkTogether = () => {
     return (
         <div className="w-full bg-white flex flex-col items-center py-[72px] gap-[42px]">
             <div className="flex flex-col sm:gap-3 gap-0">
-                <p className="font-bold sm:text-[22px] text-[16px] leading-[22px] text-[#4C6EFF] text-center">squadra media pvt</p>
+                <p className="font-bold uppercase sm:text-[22px] text-[16px] leading-[22px] text-[#4C6EFF] text-center">SQUADRA MEDIA PVT</p>
                 <p className="font-semibold sm:text-[22px] text-[16px] leading-[24.2px] text-[#131313] text-center">Have a Project in Mind ?</p>
             </div>
             <div className="flex flex-col sm:gap-2 gap-0">
