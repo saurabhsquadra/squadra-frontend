@@ -16,7 +16,7 @@ const WorkTogether = () => {
                 <p className="font-bold xl:text-[140px] sm:text-[110px] text-[44px] sm:leading-[148.2px] text-[#131313] text-center">TOGETHER</p>
             </div>
             <HoverButton
-                href="#contact-section"
+                href="/careers"
                 buttonText="VIEW JOBS" 
                 defaultIcon={arrowRight}
                 hoverIcon={righticon}
